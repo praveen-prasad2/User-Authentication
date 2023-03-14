@@ -1,16 +1,29 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-function SignUp() {
+function SignUp(props) {
+
 
     const[email,setemail]=useState("")
 const[username,setusername]=useState("")
 const[phone,setphone]=useState("")
 const[password,setpass]=useState("")
 
+const navigate=useNavigate()
+
 const[signup,setsignup]=useState(false)
 
 function showData(){
    setsignup(true)
+   let obj={
+    email,
+    password,
+    username,
+    phone
+   }
+   props.setuser(obj)
+   navigate('/login')
+   console.log(email)
 }
 function reset(){
     setemail("")    
