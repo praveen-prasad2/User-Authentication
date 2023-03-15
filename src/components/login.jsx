@@ -1,5 +1,8 @@
 import React, { useState,useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { Box } from '@mui/material/'
+import { Input } from '@mui/material'
+import Button from '@mui/material/Button'
 
  function Login(props) {
 
@@ -19,15 +22,20 @@ function showValue(){
 
     
   return (
-    <div>
+    <Box>
         <label>Email: </label>
-        <input type="Email" spaceholder="Email" id='email' ref={emailRef}/><br /><br />
+        <input type="Email" style={{color:'red',backgroundColor:'white'}} spaceholder="Email" id='email' ref={emailRef} /><br /><br />
         <label>Password: </label>
         <input type="password" spaceholder="Password" ref={passwordRef}/><br /><br />
+
+        <input type="text" />
+        <button variant="contained">Test</button>
         <button onClick={showValue}>Submit</button><br /><br />
         <Link to="/signup"><button>Signup</button></Link>
 
-    </div>
+       
+
+        </Box>
   )
  }
 
