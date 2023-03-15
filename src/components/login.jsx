@@ -1,19 +1,17 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
- function Login() {
+ function Login(props) {
 
    
-const [name,setname]=useState("")
+const [email,setemail]=useState("")
 const [password,setpassword]=useState("")
 
 function showValue(){
-    if(name=="Praveen" && password==123){
-        alert("hello Praveen")
-    }else if(name!="Praveen"){
-        alert("username incorrect")
-    }else if(password!=123){
-        alert("password incorrect")
+    if(email==props.user.email && password==props.user.password){
+        alert("login successful")
+    }else{
+        alert("check login details")
     }
 }
 
@@ -21,7 +19,7 @@ function showValue(){
   return (
     <div>
         <label>Email: </label>
-        <input type="Email" spaceholder="Email" id='email'onChange={(e)=>{setname(e.target.value); console.log(name)}}/><br /><br />
+        <input type="Email" spaceholder="Email" id='email'onChange={(e)=>{setemail(e.target.value);}}/><br /><br />
         <label>Password: </label>
         <input type="password" spaceholder="Password" onChange={(p)=>{setpassword(p.target.value)}}/><br /><br />
         <button onClick={showValue}>Submit</button><br /><br />

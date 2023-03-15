@@ -24,6 +24,7 @@ function showData(){
    props.setuser(obj)
    navigate('/login')
    console.log(email)
+   console.log(obj);
 }
 function reset(){
     setemail("")    
