@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState,useRef } from 'react'
 import { Link } from 'react-router-dom'
 
  function Login(props) {
 
-   
-const [email,setemail]=useState("")
-const [password,setpassword]=useState("")
+const emailRef=useRef()
+const passwordRef=useRef()
+
+// const [email,setemail]=useState("")
+// const [password,setpassword]=useState("")
 
 function showValue(){
-    if(email==props.user.email && password==props.user.password){
+    if(emailRef.current.value==props.user.email && passwordRef.current.value==props.user.password){
         alert("login successful")
     }else{
         alert("check login details")
@@ -19,9 +21,9 @@ function showValue(){
   return (
     <div>
         <label>Email: </label>
-        <input type="Email" spaceholder="Email" id='email'onChange={(e)=>{setemail(e.target.value);}}/><br /><br />
+        <input type="Email" spaceholder="Email" id='email' ref={emailRef}/><br /><br />
         <label>Password: </label>
-        <input type="password" spaceholder="Password" onChange={(p)=>{setpassword(p.target.value)}}/><br /><br />
+        <input type="password" spaceholder="Password" ref={passwordRef}/><br /><br />
         <button onClick={showValue}>Submit</button><br /><br />
         <Link to="/signup"><button>Signup</button></Link>
 
